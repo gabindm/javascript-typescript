@@ -1,38 +1,39 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const bcryptjs = require("bcryptjs");
 
-const LoginSchema = new mongoose.Schema({
-  email: { type: String, required: true },
-  password: { type: String, required: true },
+const ContatoSchema = new mongoose.Schema({
+  nome: {
+    type: String,
+    required: true,
+  },
+  sobrenome: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  email: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  telefone: {
+    type: String,
+    required: false,
+    default: "",
+  },
+  criadoEm: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const LoginModel = mongoose.model("Login", LoginSchema);
+const ContatoModel = mongoose.model("Contato", ContatoSchema);
 
-class Login {
+class Contato {
   constructor(body) {
     this.body = body;
     this.errors = [];
-    this.user = null;
-  }
-
-  async login() {
-    this.valida();
-
-    if (this.errors.length > 0) return;
-
-    this.user = await LoginModel.findOne({ email: this.body.email });
-
-    if (!this.user) {
-      this.errors.push("Usuário não existe.");
-      return;
-    }
-
-    if (!bcryptjs.compareSync(this.body.password, this.user.password)) {
-      this.errors.push("Senha inválida.");
-      this.user = null;
-      return;
-    }
+    this.contact = null;
   }
 
   async register() {
@@ -42,30 +43,21 @@ class Login {
       return;
     }
 
-    await this.userExists();
-
-    if (this.errors.length > 0) {
-      return;
-    }
-
-    const salt = bcryptjs.genSaltSync();
-    this.body.password = bcryptjs.hashSync(this.body.password, salt);
-
-    this.user = await LoginModel.create(this.body);
+    this.contato = await ContatoModel.create(this.body);
   }
 
   valida() {
     this.cleanUp();
 
-    //validação:
-    //email precisa ser valido
-    if (!validator.isEmail(this.body.email)) {
+    //validação
+    if (this.body.email && !validator.isEmail(this.body.email)) {
       this.errors.push("Email inválido.");
     }
-
-    //senha precisa ter entre 3 e 50 caracteres
-    if (this.body.password.length < 4 || this.body.password.length > 49) {
-      this.errors.push("Senha inválida.");
+    if (!this.body.nome) {
+      this.errors.push("Nome inválido.");
+    }
+    if (!this.body.email && !this.body.telefone) {
+      this.errors.push("Por favor, preencha email ou telefone.");
     }
   }
 
@@ -77,20 +69,37 @@ class Login {
     }
 
     this.body = {
+      nome: this.body.nome,
+      sobrenome: this.body.sobrenome,
       email: this.body.email,
-      password: this.body.password,
+      telefone: this.body.telefone,
     };
   }
 
-  async userExists() {
-    const foundUser = await LoginModel.findOne({
-      email: this.body.email,
-    });
-
-    if (foundUser) {
-      this.errors.push("Usuário já existe");
+  static async buscaPorId(id) {
+    if (typeof id !== "string") {
+      return;
     }
+
+    const foundContato = await ContatoModel.findById(id);
+    return foundContato;
   }
+
+  // async edit(id) {
+  //   if (typeof id !== "string") {
+  //     return;
+  //   }
+
+  //   this.valida();
+
+  //   if (this.errors.length > 0) {
+  //     return;
+  //   }
+
+  //   this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {
+  //     new: true,
+  //   });
+  // }
 }
 
-module.exports = Login;
+module.exports = Contato;
