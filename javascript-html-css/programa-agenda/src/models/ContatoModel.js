@@ -85,21 +85,21 @@ class Contato {
     return foundContato;
   }
 
-  // async edit(id) {
-  //   if (typeof id !== "string") {
-  //     return;
-  //   }
+  async edit(id) {
+    if (typeof id !== "string") {
+      return;
+    }
 
-  //   this.valida();
+    this.valida();
 
-  //   if (this.errors.length > 0) {
-  //     return;
-  //   }
+    if (this.errors.length > 0) {
+      return;
+    }
 
-  //   this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {
-  //     new: true,
-  //   });
-  // }
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {
+      new: true,
+    });
+  }
 }
 
 module.exports = Contato;
