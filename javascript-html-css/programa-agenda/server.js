@@ -7,7 +7,7 @@ mongoose //base de dados
   .connect(process.env.CONNECTIONSTRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    //useFindAndModify: false,
+    //useFindAndModify: false, //MongoParseError: option usefindandmodify is not supported
   })
   .then(() => {
     console.log("Base de dados conectada!");
