@@ -6,7 +6,7 @@ class HomeController {
       const novoAluno = await Aluno.create(req.body);
       res.json(novoAluno);
     } catch (e) {
-      res.status(400).json({
+      res.sendStatus(400).json({
         errors: e.errors.map((err) => err.message),
       });
     }
