@@ -1,5 +1,6 @@
 const axios = require("axios");
 const querystring = require("querystring");
+const crypto = require("crypto");
 
 class APIBase {
   constructor() {
@@ -11,10 +12,37 @@ class APIBase {
   async publicRequest(method = "GET", path, params = {}) {
     try {
       const queryString = params ? `?${querystring.stringify(params)}` : "";
+      const url = `${this.baseURL}${path}${queryString}`;
 
       const result = await axios({
         method,
-        url: `${this.baseURL}${path}${queryString}`,
+        url,
+      });
+
+      return result.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async signRequest(method = "GET", path, params = {}) {
+    try {
+      const timestamp = Date.now();
+      const signature = crypto
+        .createHmac("sha256", this.apiSecret)
+        .update(`${querystring.stringify({ ...params, timestamp })}`)
+        .digest("hex");
+
+      const data = { ...params, timestamp, signature };
+
+      const qs = `?${querystring.stringify(data)}`;
+
+      const result = await axios({
+        method,
+        url: `${this.baseURL}${path}${qs}`,
+        headers: {
+          "X-MBX-APIKEY": this.apiKey,
+        },
       });
 
       return result.data;
@@ -62,6 +90,10 @@ class APIBase {
     }
 
     return result;
+  }
+
+  async accountInfo() {
+    return await this.signRequest("GET", "/v3/account");
   }
 }
 
