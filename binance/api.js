@@ -1,6 +1,7 @@
 const axios = require("axios");
 const querystring = require("querystring");
 const crypto = require("crypto");
+const { validateRequiredParameters } = require("./helpers/validation");
 
 class APIBase {
   constructor() {
@@ -94,6 +95,47 @@ class APIBase {
 
   async accountInfo() {
     return await this.signRequest("GET", "/v3/account");
+  }
+
+  async newOrder(symbol, side, type, options = {}) {
+    validateRequiredParameters({ symbol, side, type });
+
+    return await this.signRequest(
+      "POST",
+      "/v3/order",
+      Object.assign(options, {
+        symbol: symbol.toUpperCase(),
+        side: side.toUpperCase(),
+        type: type.toUpperCase(),
+      })
+    );
+  }
+
+  async myTrades(symbol, options = {}) {
+    validateRequiredParameters({ symbol });
+
+    return this.signRequest(
+      "GET",
+      "/v3/myTrades",
+      Object.assign(options, {
+        symbol: symbol.toUpperCase(),
+      })
+    );
+  }
+
+  async openOrders(options = {}) {
+    return await this.signRequest("GET", "/v3/openOrders", options);
+  }
+
+  async getOrder(symbol, options = {}) {
+    validateRequiredParameters({ symbol });
+    return this.signRequest(
+      "GET",
+      "/v3/order",
+      Object.assign(options, {
+        symbol: symbol.toUpperCase(),
+      })
+    );
   }
 }
 

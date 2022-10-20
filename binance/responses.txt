@@ -1,0 +1,695 @@
+reposta pra APIBase.time(): 
+{ serverTime: 1666187451610 }
+
+resposta pra await APIBase.ping(): 
+{}
+
+resposta pra await APIBase.depth("BNBBTC", 10):
+{
+  lastUpdateId: 2262023,
+  bids: [
+    [ '0.01417500', '0.63000000' ],
+    [ '0.01417400', '0.26000000' ],
+    [ '0.01417300', '0.11000000' ],
+    [ '0.01417200', '0.46000000' ],
+    [ '0.01417000', '0.53000000' ],
+    [ '0.01416800', '0.57000000' ],
+    [ '0.01416700', '0.48000000' ],
+    [ '0.01416600', '0.61000000' ],
+    [ '0.01416500', '0.48000000' ],
+    [ '0.01416400', '0.69000000' ]
+  ],
+  asks: [
+    [ '0.01417600', '0.46000000' ],
+    [ '0.01417700', '0.44000000' ],
+    [ '0.01417800', '0.69000000' ],
+    [ '0.01417900', '0.36000000' ],
+    [ '0.01418000', '0.48000000' ],
+    [ '0.01418100', '0.63000000' ],
+    [ '0.01418200', '0.45000000' ],
+    [ '0.01418300', '0.43000000' ],
+    [ '0.01418400', '0.41000000' ],
+    [ '0.01418500', '0.69000000' ]
+  ]
+}
+
+resposta pra APIBase.exchangeInfo({ symbol: "BNBBTC" }):
+{
+  timezone: 'UTC',
+  serverTime: 1666187616033,
+  rateLimits: [
+    {
+      rateLimitType: 'REQUEST_WEIGHT',
+      interval: 'MINUTE',
+      intervalNum: 1,
+      limit: 1200
+    },
+    {
+      rateLimitType: 'ORDERS',
+      interval: 'SECOND',
+      intervalNum: 10,
+      limit: 50
+    },
+    {
+      rateLimitType: 'ORDERS',
+      interval: 'DAY',
+      intervalNum: 1,
+      limit: 160000
+    }
+  ],
+  exchangeFilters: [],
+  symbols: [
+    {
+      symbol: 'BNBBTC',
+      status: 'TRADING',
+      baseAsset: 'BNB',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BTC',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    }
+  ]
+}
+
+resposta pra await APIBase.exchangeInfo({ permissions: "SPOT" }):
+{
+  timezone: 'UTC',
+  serverTime: 1666187696324,
+  rateLimits: [
+    {
+      rateLimitType: 'REQUEST_WEIGHT',
+      interval: 'MINUTE',
+      intervalNum: 1,
+      limit: 1200
+    },
+    {
+      rateLimitType: 'ORDERS',
+      interval: 'SECOND',
+      intervalNum: 10,
+      limit: 50
+    },
+    {
+      rateLimitType: 'ORDERS',
+      interval: 'DAY',
+      intervalNum: 1,
+      limit: 160000
+    }
+  ],
+  exchangeFilters: [],
+  symbols: [
+    {
+      symbol: 'BNBBUSD',
+      status: 'TRADING',
+      baseAsset: 'BNB',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BUSD',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'BTCBUSD',
+      status: 'TRADING',
+      baseAsset: 'BTC',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BUSD',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'ETHBUSD',
+      status: 'TRADING',
+      baseAsset: 'ETH',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BUSD',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'LTCBUSD',
+      status: 'TRADING',
+      baseAsset: 'LTC',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BUSD',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'TRXBUSD',
+      status: 'TRADING',
+      baseAsset: 'TRX',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BUSD',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'XRPBUSD',
+      status: 'TRADING',
+      baseAsset: 'XRP',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BUSD',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'BNBUSDT',
+      status: 'TRADING',
+      baseAsset: 'BNB',
+      baseAssetPrecision: 8,
+      quoteAsset: 'USDT',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'BTCUSDT',
+      status: 'TRADING',
+      baseAsset: 'BTC',
+      baseAssetPrecision: 8,
+      quoteAsset: 'USDT',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'ETHUSDT',
+      status: 'TRADING',
+      baseAsset: 'ETH',
+      baseAssetPrecision: 8,
+      quoteAsset: 'USDT',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'LTCUSDT',
+      status: 'TRADING',
+      baseAsset: 'LTC',
+      baseAssetPrecision: 8,
+      quoteAsset: 'USDT',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'TRXUSDT',
+      status: 'TRADING',
+      baseAsset: 'TRX',
+      baseAssetPrecision: 8,
+      quoteAsset: 'USDT',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'XRPUSDT',
+      status: 'TRADING',
+      baseAsset: 'XRP',
+      baseAssetPrecision: 8,
+      quoteAsset: 'USDT',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'BNBBTC',
+      status: 'TRADING',
+      baseAsset: 'BNB',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BTC',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'ETHBTC',
+      status: 'TRADING',
+      baseAsset: 'ETH',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BTC',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'LTCBTC',
+      status: 'TRADING',
+      baseAsset: 'LTC',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BTC',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'TRXBTC',
+      status: 'TRADING',
+      baseAsset: 'TRX',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BTC',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'XRPBTC',
+      status: 'TRADING',
+      baseAsset: 'XRP',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BTC',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'LTCBNB',
+      status: 'TRADING',
+      baseAsset: 'LTC',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BNB',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'TRXBNB',
+      status: 'TRADING',
+      baseAsset: 'TRX',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BNB',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    },
+    {
+      symbol: 'XRPBNB',
+      status: 'TRADING',
+      baseAsset: 'XRP',
+      baseAssetPrecision: 8,
+      quoteAsset: 'BNB',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    }
+  ]
+}
+
+reposta pra console.log(await APIBase.spotPairs()); //metodo criado por mim
+[
+  'BNBBUSD', 'BTCBUSD', 'ETHBUSD',
+  'LTCBUSD', 'TRXBUSD', 'XRPBUSD',
+  'BNBUSDT', 'BTCUSDT', 'ETHUSDT',
+  'LTCUSDT', 'TRXUSDT', 'XRPUSDT',
+  'BNBBTC',  'ETHBTC',  'LTCBTC',
+  'TRXBTC',  'XRPBTC',  'LTCBNB',
+  'TRXBNB',  'XRPBNB'
+]
+
+reposta pra await APIBase.accountInfo():
+{
+  makerCommission: 0,
+  takerCommission: 0,
+  buyerCommission: 0,
+  sellerCommission: 0,
+  canTrade: true,
+  canWithdraw: false,
+  canDeposit: false,
+  brokered: false,
+  updateTime: 1666186950450,
+  accountType: 'SPOT',
+  balances: [
+    { asset: 'BNB', free: '1001.00000000', locked: '0.00000000' },
+    { asset: 'BTC', free: '1.00000000', locked: '0.00000000' },
+    { asset: 'BUSD', free: '10000.00000000', locked: '0.00000000' },
+    { asset: 'ETH', free: '100.00000000', locked: '0.00000000' },
+    { asset: 'LTC', free: '500.00000000', locked: '0.00000000' },
+    { asset: 'TRX', free: '500000.00000000', locked: '0.00000000' },
+    { asset: 'USDT', free: '9728.70000000', locked: '0.00000000' },
+    { asset: 'XRP', free: '50000.00000000', locked: '0.00000000' }
+  ],
+  permissions: [ 'SPOT' ]
+}
+
+reposta pra await APIBase.newOrder("BNBUSDT", "BUY", "LIMIT", options):
+{
+  symbol: 'BNBUSDT',
+  orderId: 845854,
+  orderListId: -1,
+  clientOrderId: 'SkvltC2QwxjaCAUlGwmGiG',
+  transactTime: 1666186950450,
+  price: '271.80000000',
+  origQty: '1.00000000',
+  executedQty: '1.00000000',
+  cummulativeQuoteQty: '271.30000000',
+  status: 'FILLED',
+  timeInForce: 'GTC',
+  type: 'LIMIT',
+  side: 'BUY',
+  fills: [
+    {
+      price: '271.30000000',
+      qty: '1.00000000',
+      commission: '0.00000000',
+      commissionAsset: 'BNB',
+      tradeId: 40500
+    }
+  ]
+}
+
+reposta pra buy order com condições - BNBBUSD: 
+{
+  lastUpdateId: 889891,
+  bids: [
+    [ '270.90000000', '2.52000000' ],
+    [ '270.80000000', '3.55000000' ],
+    [ '270.70000000', '2.78000000' ],
+    [ '270.60000000', '2.48000000' ],
+    [ '270.52000000', '0.05000000' ]
+  ],
+  asks: [
+    [ '271.00000000', '2.26000000' ],
+    [ '271.10000000', '1.85000000' ],
+    [ '271.20000000', '2.22000000' ],
+    [ '271.30000000', '2.92000000' ],
+    [ '271.40000000', '2.58000000' ]
+  ]
+}
+Highest Bid: 270.90000000
+Lowest Ask: 271.00000000
+Posição da carteira: [
+  { asset: 'BNB', free: '1001.00000000', locked: '0.00000000' },
+  { asset: 'BUSD', free: '10000.00000000', locked: '0.00000000' }
+]
+{
+  symbol: 'BNBUSDT',
+  orderId: 846538,
+  orderListId: -1,
+  clientOrderId: 'lvcMAQQmTHP44EbRenahhD',
+  transactTime: 1666187929227,
+  price: '271.00000000',
+  origQty: '1.00000000',
+  executedQty: '0.00000000',
+  cummulativeQuoteQty: '0.00000000',
+  status: 'NEW',
+  timeInForce: 'GTC',
+  type: 'LIMIT',
+  side: 'BUY',
+  fills: []
+}
+
+resposta pra await APIBase.openOrders({ symbol: "BNBUSDT" }):
+[]
+
+resposta pra await APIBase.myTrades("BNBUSDT"):
+[
+  {
+    symbol: 'BNBUSDT',
+    id: 40500,
+    orderId: 845854,
+    orderListId: -1,
+    price: '271.30000000',
+    qty: '1.00000000',
+    quoteQty: '271.30000000',
+    commission: '0.00000000',
+    commissionAsset: 'BNB',
+    time: 1666186950450,
+    isBuyer: true,
+    isMaker: false,
+    isBestMatch: true
+  },
+  {
+    symbol: 'BNBUSDT',
+    id: 40534,
+    orderId: 846538,
+    orderListId: -1,
+    price: '271.00000000',
+    qty: '1.00000000',
+    quoteQty: '271.00000000',
+    commission: '0.00000000',
+    commissionAsset: 'BNB',
+    time: 1666188002313,
+    isBuyer: true,
+    isMaker: true,
+    isBestMatch: true
+  }
+]
+
+resposta pra await APIBase.getOrder("BNBUSDT", { orderId: 845854 }):
+{
+  symbol: 'BNBUSDT',
+  orderId: 845854,
+  orderListId: -1,
+  clientOrderId: 'SkvltC2QwxjaCAUlGwmGiG',
+  price: '271.80000000',
+  origQty: '1.00000000',
+  executedQty: '1.00000000',
+  cummulativeQuoteQty: '271.30000000',
+  status: 'FILLED',
+  timeInForce: 'GTC',
+  type: 'LIMIT',
+  side: 'BUY',
+  stopPrice: '0.00000000',
+  icebergQty: '0.00000000',
+  time: 1666186950450,
+  updateTime: 1666186950450,
+  isWorking: true,
+  origQuoteOrderQty: '0.00000000'
+}

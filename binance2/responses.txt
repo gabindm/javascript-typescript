@@ -1,0 +1,150 @@
+example 1: 
+
+Highest Bid: 272.80000000
+Lowest Ask: 272.90000000
+Saldo USD = 7269.6
+Saldo BNB = 1009
+Posso comprar :D
+{
+  symbol: 'BNBBUSD',
+  orderId: 486214,
+  orderListId: -1,
+  clientOrderId: 'upZeB2VP4p9Bdp3fQ6ADpT',
+  transactTime: 1666277911254,
+  price: '272.90000000',
+  origQty: '1.00000000',
+  executedQty: '1.00000000',
+  cummulativeQuoteQty: '272.90000000',
+  status: 'FILLED',
+  timeInForce: 'GTC',
+  type: 'LIMIT',
+  side: 'BUY',
+  fills: [
+    {
+      price: '272.90000000',
+      qty: '1.00000000',
+      commission: '0.00000000',
+      commissionAsset: 'BNB',
+      tradeId: 23836
+    }
+  ]
+}
+272.9
+Posicionando venda futura do asset comprado:
+{
+  symbol: 'BNBBUSD',
+  orderId: 486215,
+  orderListId: -1,
+  clientOrderId: 'RIJB7HlriOZw2SbGcF3TZX',
+  transactTime: 1666277911741,
+  price: '300.19000000',
+  origQty: '1.00000000',
+  executedQty: '0.00000000',
+  cummulativeQuoteQty: '0.00000000',
+  status: 'NEW',
+  timeInForce: 'GTC',
+  type: 'LIMIT',
+  side: 'SELL',
+  fills: []
+}
+
+example 2:
+
+new order ->
+
+{
+  symbol: 'BNBBUSD',
+  orderId: 487251,
+  orderListId: -1,
+  clientOrderId: '3JL4m9vnebKRYt1TDvGWkw',
+  transactTime: 1666281221371,
+  price: '272.50000000',
+  origQty: '20.00000000',
+  executedQty: '3.09000000',
+  cummulativeQuoteQty: '842.02500000',
+  status: 'PARTIALLY_FILLED',
+  timeInForce: 'GTC',
+  type: 'LIMIT',
+  side: 'SELL',
+  fills: [
+    {
+      price: '272.50000000',
+      qty: '3.09000000',
+      commission: '0.00000000',
+      commissionAsset: 'BUSD',
+      tradeId: 23854
+    }
+  ]
+}
+
+all orders =>
+
+[
+  {
+    symbol: 'BNBBUSD',
+    orderId: 487251,
+    orderListId: -1,
+    clientOrderId: '3JL4m9vnebKRYt1TDvGWkw',
+    price: '272.50000000',
+    origQty: '20.00000000',
+    executedQty: '20.00000000',
+    cummulativeQuoteQty: '5450.00000000',
+    status: 'FILLED',
+    timeInForce: 'GTC',
+    type: 'LIMIT',
+    side: 'SELL',
+    stopPrice: '0.00000000',
+    icebergQty: '0.00000000',
+    time: 1666281221371,
+    updateTime: 1666281233850,
+    isWorking: true,
+    origQuoteOrderQty: '0.00000000'
+  }
+]
+
+example comprar btc: 
+{
+  symbol: 'BTCBUSD',
+  orderId: 4640543,
+  orderListId: -1,
+  clientOrderId: 'oU7eX9YhfepKM4otbcIxmb',
+  transactTime: 1666287559538,
+  price: '0.00000000',
+  origQty: '0.10000000',
+  executedQty: '0.10000000',
+  cummulativeQuoteQty: '1913.17649810',
+  status: 'FILLED',
+  timeInForce: 'GTC',
+  type: 'MARKET',
+  side: 'BUY',
+  fills: [
+    {
+      price: '19129.97000000',
+      qty: '0.03305500',
+      commission: '0.00000000',
+      commissionAsset: 'BTC',
+      tradeId: 1483585
+    },
+    {
+      price: '19130.00000000',
+      qty: '0.04182000',
+      commission: '0.00000000',
+      commissionAsset: 'BTC',
+      tradeId: 1483586
+    },
+    {
+      price: '19137.06000000',
+      qty: '0.02298000',
+      commission: '0.00000000',
+      commissionAsset: 'BTC',
+      tradeId: 1483587
+    },
+    {
+      price: '19137.11000000',
+      qty: '0.00214500',
+      commission: '0.00000000',
+      commissionAsset: 'BTC',
+      tradeId: 1483588
+    }
+  ]
+}

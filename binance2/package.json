@@ -1,0 +1,27 @@
+{
+  "name": "binance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r dotenv/config ./src/index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.1.2",
+    "dotenv": "^16.0.3",
+    "ws": "^8.8.1"
+  },
+  "devDependencies": {
+    "clean-jsdoc-theme": "^3.2.7",
+    "husky": "^6.0.0",
+    "jest": "^28.1.2",
+    "jsdoc": "^3.6.7",
+    "marked": "^4.0.12",
+    "nock": "^13.0.2",
+    "standard": "^16.0.4"
+  }
+}
