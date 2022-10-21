@@ -148,3 +148,102 @@ example comprar btc:
     }
   ]
 }
+
+exchange ifo => 
+
+{
+  timezone: 'UTC',
+  serverTime: 1666293212272,
+  rateLimits: [
+    {
+      rateLimitType: 'REQUEST_WEIGHT',
+      interval: 'MINUTE',
+      intervalNum: 1,
+      limit: 1200
+    },
+    {
+      rateLimitType: 'ORDERS',
+      interval: 'SECOND',
+      intervalNum: 10,
+      limit: 50
+    },
+    {
+      rateLimitType: 'ORDERS',
+      interval: 'DAY',
+      intervalNum: 1,
+      limit: 160000
+    }
+  ],
+  exchangeFilters: [],
+  symbols: [
+    {
+      symbol: 'BTCUSDT',
+      status: 'TRADING',
+      baseAsset: 'BTC',
+      baseAssetPrecision: 8,
+      quoteAsset: 'USDT',
+      quotePrecision: 8,
+      quoteAssetPrecision: 8,
+      baseCommissionPrecision: 8,
+      quoteCommissionPrecision: 8,
+      orderTypes: [Array],
+      icebergAllowed: true,
+      ocoAllowed: true,
+      quoteOrderQtyMarketAllowed: true,
+      allowTrailingStop: true,
+      cancelReplaceAllowed: true,
+      isSpotTradingAllowed: true,
+      isMarginTradingAllowed: false,
+      filters: [Array],
+      permissions: [Array]
+    }
+  ]
+}
+
+{
+  "timezone": "UTC",
+  "serverTime": 1592882214236,
+  "rateLimits": [
+    {
+      "rateLimitType": "REQUEST_WEIGHT",
+      "interval": "MINUTE",
+      "intervalNum": 1,
+      "limit": 1200
+    }
+  ],
+  "exchangeFilters": [
+    {}
+  ],
+  "symbols": [
+    {
+      "symbol": "ETHBTC",
+      "status": "TRADING",
+      "baseAsset": "ETH",
+      "baseAssetPrecision": 8,
+      "quoteAsset": "BTC",
+      "quoteAssetPrecision": 8,
+      "baseCommissionPrecision": 8,
+      "quoteCommissionPrecision": 8,
+      "orderTypes": [
+        "LIMIT"
+      ],
+      "icebergAllowed": true,
+      "ocoAllowed": true,
+      "quoteOrderQtyMarketAllowed": true,
+      "allowTrailingStop": false,
+      "isSpotTradingAllowed": true,
+      "isMarginTradingAllowed": true,
+      "filters": [
+        {
+          "filterType": "PRICE_FILTER",
+          "minPrice": "0.00000100",
+          "maxPrice": "100000.00000000",
+          "tickSize": "0.00000100"
+        }
+      ],
+      "permissions": [
+        "SPOT"
+      ]
+    }
+  ]
+}

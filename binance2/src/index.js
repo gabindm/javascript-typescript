@@ -40,20 +40,38 @@ const client = new Spot();
 //   .then((response) => client.logger.log(response.data))
 //   .catch((error) => client.logger.error(error));
 
+// client
+//   .exchangeInfo()
+//   .then((response) => client.logger.log(response.data))
+//   .catch((error) => client.logger.error(error));
+
+// client
+//   .exchangeInfo({ symbol: "BNBBUSD" })
+//   .then((response) => client.logger.log(response.data));
+
+// async function executa() {
+//   try {
+//     const price = (await client.bookTicker("BTCBUSD")).data.askPrice;
+//     console.log(price);
+
+//     const buyOrder = (
+//       await client.newOrder("BTCBUSD", "buy", "market", {
+//         //price,
+//         quantity: 0.1,
+//         //timeInForce: "GTC",
+//       })
+//     ).data;
+
+//     console.log(buyOrder);
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
+
 async function executa() {
   try {
-    const price = (await client.bookTicker("BTCBUSD")).data.askPrice;
-    console.log(price);
-
-    const buyOrder = (
-      await client.newOrder("BTCBUSD", "buy", "market", {
-        //price,
-        quantity: 0.1,
-        //timeInForce: "GTC",
-      })
-    ).data;
-
-    console.log(buyOrder);
+    const market = (await client.exchangeInfo({ symbol: "BNBBUSD" })).data;
+    console.log(market);
   } catch (e) {
     console.log(e);
   }

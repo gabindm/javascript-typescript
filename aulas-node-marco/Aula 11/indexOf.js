@@ -1,5 +1,5 @@
-let cidades = ['recife', 'sao paulo', 'joao pessoa', 'maceio']
-let cidade = 'sao paulo'
+let cidades = ["recife", "sao paulo", "joao pessoa", "maceio"];
+let cidade = "sao paulo";
 
-console.log(cidade.indexOf(' '))
+console.log(cidades.indexOf(" "));
 //let nomeComposto = x => x.indexOf(' ')
