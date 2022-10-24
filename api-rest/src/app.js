@@ -1,4 +1,5 @@
 import { resolve } from "path";
+
 import "./database";
 
 import express from "express";
@@ -21,8 +22,11 @@ class App {
         extended: true,
       })
     );
-
     this.app.use(express.json());
+    this.app.use(
+      "/images/",
+      express.static(resolve(__dirname, "..", "uploads", "images"))
+    );
   }
 
   routes() {

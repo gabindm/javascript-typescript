@@ -1,7 +1,7 @@
 import multer from "multer";
 import { extname, resolve } from "path";
 
-const aleatorio = () => Math.floor(Math.random() * 100000 + 10000);
+const aleatorio = () => Math.floor(Math.random() * 10000 + 10000);
 
 export default {
   fileFilter: (req, file, callback) => {
@@ -13,7 +13,7 @@ export default {
   },
   storage: multer.diskStorage({
     destination: (req, file, callback) => {
-      callback(null, resolve(__dirname, "..", "..", "fotos"));
+      callback(null, resolve(__dirname, "..", "..", "uploads", "images"));
     },
     filename: (req, file, callback) => {
       callback(

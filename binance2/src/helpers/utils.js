@@ -53,8 +53,8 @@ const createRequest = (config) => {
     httpsAgent,
     headers: {
       "Content-Type": "application/json",
-      "X-MBX-APIKEY": apiKey,
-      "User-Agent": `BotTeste/XXX`,
+      //"X-MBX-APIKEY": apiKey,
+      "User-Agent": `Bot-Teste/XXX`,
     },
   }).request({
     method,
