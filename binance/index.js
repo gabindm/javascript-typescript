@@ -9,25 +9,25 @@ setInterval(async () => {
   // // console.log(await APIBase.depth("BNBBTC", 10));
   // // console.log(await APIBase.exchangeInfo({ symbol: "BNBBTC" }));
   // //
-  console.log(await APIBase.exchangeInfo({ permissions: "SPOT" }));
+  // console.log(await APIBase.exchangeInfo({ permissions: "SPOT" }));
   // // console.log(await APIBase.spotPairs());
   // // console.log(await APIBase.accountInfo());
   // /*
   //  * Testando o metodo depth
   //  */
-  // const symbol = "BNBBUSD";
-  // const result = await APIBase.depth(symbol);
+  const symbol = "BTCBUSD";
+  const result = await APIBase.depth(symbol);
   // console.log(result);
-  // let highestBid = result.bids[0][0]; //maior oferta de compra - quero vender no maior preco
-  // let lowestAsk = result.asks[0][0]; //menor oferta de venda - quero comprar no menor preco
-  // for (const bid of result.bids) {
-  //   highestBid = highestBid > bid[0] ? highestBid : bid[0];
-  // }
-  // console.log(`Highest Bid: ${highestBid}`);
-  // for (const ask of result.asks) {
-  //   lowestAsk = lowestAsk < ask[0] ? lowestAsk : ask[0];
-  // }
-  // console.log(`Lowest Ask: ${lowestAsk}`);
+  let highestBid = result.bids[0][0]; //maior oferta de compra - quero vender no maior preco
+  let lowestAsk = result.asks[0][0]; //menor oferta de venda - quero comprar no menor preco
+  for (const bid of result.bids) {
+    highestBid = highestBid > bid[0] ? highestBid : bid[0];
+  }
+  console.log(`Highest Bid: ${highestBid}`);
+  for (const ask of result.asks) {
+    lowestAsk = lowestAsk < ask[0] ? lowestAsk : ask[0];
+  }
+  console.log(`Lowest Ask: ${lowestAsk}`);
   // /*
   //  * Testando o metodo accountInfo
   //  */
@@ -37,16 +37,16 @@ setInterval(async () => {
   // /*
   //  * Testando o metodo new Order - buy
   //  */
-  // const options = {
-  //   price: lowestAsk,
-  //   quantity: 1,
-  //   timeInForce: "GTC",
-  // };
+  const options = {
+    price: lowestAsk,
+    quantity: 0.01,
+    timeInForce: "GTC",
+  };
   // if (
   //   lowestAsk * options.quantity <=
   //   parseFloat(coins.find((c) => c.asset.endsWith === process.env.COIN).free)
   // ) {
-  //   console.log(await APIBase.newOrder("BNBUSDT", "BUY", "LIMIT", options));
+  console.log(await APIBase.newOrder(symbol, "BUY", "LIMIT", options));
   // } else {
   //   console.log("saldo insuficiente!");
   // }

@@ -2,6 +2,13 @@ const Spot = require("./spot");
 const client = new Spot();
 const utils = require("./helpers/utils");
 
+client
+  .cancelOrder("BTCBUSD", {
+    orderId: 7802702,
+  })
+  .then((response) => client.logger.log(response.data))
+  .catch((error) => client.logger.error(error));
+
 // client
 //   .getOrder("BTCBUSD", {
 //     orderId: 4640543,
@@ -57,59 +64,60 @@ const utils = require("./helpers/utils");
 //   .exchangeInfo({ symbol: "BNBBUSD" })
 //   .then((response) => client.logger.log(response.data));
 
+async function executa() {
+  // try {
+  //   const price = (await client.bookTicker("BTCBUSD")).data.askPrice;
+  //   console.log(price);
+  //   const buyOrder = (
+  //     await client.newOrder("BTCBUSD", "buy", "market", {
+  //       //price: price,
+  //       quantity: 0.001,
+  //       //timeInForce: "GTC",
+  //     })
+  //   ).data;
+  //   const executedAmount =
+  //     parseFloat(buyOrder.cummulativeQuoteQty) /
+  //     parseFloat(buyOrder.executedQty);
+  //   console.log(buyOrder, executedAmount);
+  // } catch (e) {
+  //   console.log(e.response.data);
+  // }
+}
+
+//https://api.binance.com/api/v3/exchangeInfo?symbol=BTCBUSD
 // async function executa() {
-//   try {
-//     const price = (await client.bookTicker("BTCBUSD")).data.askPrice;
-//     console.log(price);
+// try {
+// const market = (await client.exchangeInfo()).data;
+// const symbols = market.symbols;
 
-//     const buyOrder = (
-//       await client.newOrder("BTCBUSD", "buy", "market", {
-//         //price,
-//         quantity: 0.1,
-//         //timeInForce: "GTC",
-//       })
-//     ).data;
+// const [btcmarket] = symbols.filter((symbol) => symbol.symbol === "BTCBUSD");
+// console.log(btcmarket);
 
-//     console.log(buyOrder);
+// const filters = btcmarket.filters;
+// // console.log(filters);
+
+// let minSize = 0;
+// let maxSize = 0;
+// let sizeIncrement = 0;
+// const priceIncrement = btcmarket.quoteAssetPrecision;
+// const priceSignificantDigits = btcmarket.quoteAssetPrecision;
+
+// for (let filter of btcmarket.filters) {
+//   if (filter.filterType === "LOT_SIZE") {
+//     // console.log(filter);
+//     minSize = filter.minQty;
+//     maxSize = filter.maxQty;
+//     sizeIncrement = filter.stepSize;
+//   }
+// }
+
+// console.log(
+//   `minSize = ${minSize}, maxSize = ${maxSize}, sizeIncrement = ${sizeIncrement}, priceSignificantDigits = ${priceSignificantDigits}, priceIncrement = ${priceIncrement}`
+// );
 //   } catch (e) {
 //     console.log(e);
 //   }
 // }
-
-//https://api.binance.com/api/v3/exchangeInfo?symbol=BTCBUSD
-async function executa() {
-  try {
-    const market = (await client.exchangeInfo()).data;
-    const symbols = market.symbols;
-
-    const [btcmarket] = symbols.filter((symbol) => symbol.symbol === "BTCBUSD");
-    // console.log(btcmarket);
-
-    const filters = btcmarket.filters;
-    // console.log(filters);
-
-    let minSize = 0;
-    let maxSize = 0;
-    let sizeIncrement = 0;
-    const priceIncrement = btcmarket.quoteAssetPrecision;
-    const priceSignificantDigits = 0;
-
-    for (let filter of btcmarket.filters) {
-      if (filter.filterType === "LOT_SIZE") {
-        // console.log(filter);
-        minSize = filter.minQty;
-        maxSize = filter.maxQty;
-        sizeIncrement = filter.stepSize;
-      }
-    }
-
-    console.log(
-      `minSize = ${minSize}, maxSize = ${maxSize}, sizeIncrement = ${sizeIncrement}, priceSignificantDigits = ${priceSignificantDigits}, priceIncrement = ${priceIncrement}`
-    );
-  } catch (e) {
-    console.log(e);
-  }
-}
 
 executa();
 
