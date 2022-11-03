@@ -20,14 +20,15 @@ const username = document.querySelector('.username');
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const password2 = document.querySelector('.password2');
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
+    const target = event.target;
     console.log('Enviando...');
-    hideErrorMessages(this);
+    hideErrorMessages(target);
     checkForEmptyFields(username, email, password, password2);
     checkEmail(email);
     checkPasswords(password, password2);
-    if (sendForm(this)) {
+    if (sendForm(target)) {
         console.log('Formulário enviado com sucesso.');
     }
 });

@@ -8,14 +8,28 @@ const email = document.querySelector('.email') as HTMLInputElement;
 const password = document.querySelector('.password') as HTMLInputElement;
 const password2 = document.querySelector('.password2') as HTMLInputElement;
 
-form.addEventListener('submit', function (event: Event) {
+// form.addEventListener('submit', function (event: Event) {
+//   event.preventDefault(); //não atualizar página ao enviar
+//   console.log('Enviando...');
+//   hideErrorMessages(this);
+//   checkForEmptyFields(username, email, password, password2);
+//   checkEmail(email);
+//   checkPasswords(password, password2);
+//   if (sendForm(this)) {
+//     console.log('Formulário enviado com sucesso.');
+//   }
+// });
+
+//reescrevendo o codigo acima com arrow function
+form.addEventListener('submit', (event: Event) => {
   event.preventDefault(); //não atualizar página ao enviar
+  const target = event.target as HTMLFormElement;
   console.log('Enviando...');
-  hideErrorMessages(this);
+  hideErrorMessages(target);
   checkForEmptyFields(username, email, password, password2);
   checkEmail(email);
   checkPasswords(password, password2);
-  if (sendForm(this)) {
+  if (sendForm(target)) {
     console.log('Formulário enviado com sucesso.');
   }
 });
