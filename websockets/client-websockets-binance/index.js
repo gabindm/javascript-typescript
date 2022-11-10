@@ -5,12 +5,10 @@ let stream = readlineSync.question(
 console.log(stream);
 stream = stream.split("@");
 
-const WebSocket = require("ws"); //tanto para criação de servidor quanto client websocket
-//const ws = new WebSocket("wss://stream.binance.com:9443/ws/btcbusd@bookTicker");
-//a stream btcbrl@bookTicker traz em tempo real as ofertas de compra e venda de btcbrl
-const ws = new WebSocket(`wss://stream.binance.com:9443/ws/${stream[0]}`);
+const WebSocket = require("ws");
+const ws = new WebSocket(`wss://stream.binance.com:9443/ws`);
 
-ws.onopen = () => {
+ws.addEventListener("open", () => {
   ws.send(
     JSON.stringify({
       method: "SUBSCRIBE",
@@ -18,9 +16,9 @@ ws.onopen = () => {
       id: 1,
     })
   );
-};
+});
 
-ws.onmessage = (event) => {
+ws.addEventListener("message", (event) => {
   //é um event handler. Passamos pra ele uma função de callback pra ser executada toda vez que o client receber uma msg do server
   //console.log(event.data);
   const obj = JSON.parse(event.data); //desestruturar o event.data
@@ -28,9 +26,9 @@ ws.onmessage = (event) => {
   //process.stdout.write("\033c"); //pra não acumular os logs na tela
   console.log(`Best bid price: ${obj.b}\n`);
   console.log(`Best ask price: ${obj.a}\n`);
-};
+});
 
-ws.on("ping", () => {
+ws.addEventListener("ping", () => {
   console.log("Received ping event. Sending pong back.");
   ws.pong();
 });

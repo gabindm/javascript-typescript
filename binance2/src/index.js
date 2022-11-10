@@ -2,17 +2,17 @@
  * WEBSOCKET
  */
 
-const { Console } = require("console");
-const Spot = require("./spot");
+// const { Console } = require("console");
+// const Spot = require("./spot");
 
-const logger = new Console({ stdout: process.stdout, stderr: process.stderr });
-const client = new Spot("", "", { logger });
+// const logger = new Console({ stdout: process.stdout, stderr: process.stderr });
+// const client = new Spot("", "", { logger });
 
-const callbacks = {
-  open: () => logger.debug("Connected with Websocket server"),
-  close: () => logger.debug("Disconnected with Websocket server"),
-  message: (data) => logger.info(data),
-};
+// const callbacks = {
+//   open: () => logger.debug("Connected with Websocket server"),
+//   close: () => logger.debug("Disconnected with Websocket server"),
+//   message: (data) => logger.info(data),
+// };
 
 // all pairs
 // client.bookTickerWS(null, callbacks)
@@ -22,19 +22,19 @@ const callbacks = {
 // setTimeout(() => client.unsubscribe(wsRef), 60000);
 
 //subscribing different requests
-const wsRef = client.combinedStreams(
-  ["btcbusd@bookTicker", "btcbusd@ticker"],
-  callbacks
-);
-setTimeout(() => client.unsubscribe(wsRef), 60000);
+// const wsRef = client.combinedStreams(
+//   ["btcbusd@bookTicker", "btcbusd@ticker"],
+//   callbacks
+// );
+// setTimeout(() => client.unsubscribe(wsRef), 60000);
 
 /*
  * API REST
  */
 
-// const Spot = require("./spot");
-// const client = new Spot();
-// const utils = require("./helpers/utils");
+const Spot = require("./spot");
+const client = new Spot();
+const utils = require("./helpers/utils");
 
 // client
 //   .cancelOrder("BTCBUSD", {
@@ -90,33 +90,43 @@ setTimeout(() => client.unsubscribe(wsRef), 60000);
 //   .catch((error) => client.logger.error(error));
 
 // client
-//   .exchangeInfo()
-//   .then((response) => client.logger.log(response.data))
-//   .catch((error) => client.logger.error(error));
-
-// client
 //   .exchangeInfo({ symbol: "BNBBUSD" })
 //   .then((response) => client.logger.log(response.data));
 
-// async function executa() {
-// try {
-//   const price = (await client.bookTicker("BTCBUSD")).data.askPrice;
-//   console.log(price);
-//   const buyOrder = (
-//     await client.newOrder("BTCBUSD", "buy", "limit", {
-//       price: price,
-//       quantity: 1,
-//       timeInForce: "GTC",
-//     })
-//   ).data;
-//   // const executedAmount =
-//   //   parseFloat(buyOrder.cummulativeQuoteQty) /
-//   //   parseFloat(buyOrder.executedQty);
-//   console.log(buyOrder);
-// } catch (e) {
-//   console.log(e.response.data);
-// }
-// }
+async function executa() {
+  try {
+    const withoutperm = await JSON.stringify(
+      client.exchangeInfo({ permissions: "SPOT" }).data
+    );
+
+    // const withperm = await JSON.stringify(client.exchangeInfo().data);
+
+    // console.log(withoutperm === withperm);
+
+    const price = (await client.bookTicker("BNBBUSD")).data.askPrice;
+    console.log(price);
+
+    const buyOrder = JSON.stringify(
+      (
+        await client.newOrder("BNBBUSD", "buy", "limit", {
+          price: price,
+          quantity: 1,
+          timeInForce: "GTC",
+        })
+      ).data
+    );
+
+    console.log(buyOrder);
+
+    //   // const executedAmount =
+    //   //   parseFloat(buyOrder.cummulativeQuoteQty) /
+    //   //   parseFloat(buyOrder.executedQty);
+  } catch (e) {
+    console.log(e.response.data);
+  }
+}
+
+executa();
 
 //https://api.binance.com/api/v3/exchangeInfo?symbol=BTCBUSD
 // async function executa() {
