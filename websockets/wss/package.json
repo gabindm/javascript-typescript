@@ -2,10 +2,10 @@
   "name": "wsssimplificado",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "b2c2-ws.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r dotenv/config index"
+    "start": "node -r dotenv/config b2c2-ws"
   },
   "keywords": [],
   "author": "",
