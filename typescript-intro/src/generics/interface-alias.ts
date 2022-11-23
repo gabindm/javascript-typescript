@@ -19,7 +19,7 @@ console.log(aluno);
  * Outra forma de escrever interface com generics
  */
 
-interface PessoaProtocolo1<T = string, U = number> {
+export interface PessoaProtocolo1<T = string, U = number> {
   nome: T;
   sobrenome: T;
   idade: U;
